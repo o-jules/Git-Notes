@@ -19,7 +19,7 @@
 # 取消最近一次commit，修改保留
 git reset --soft HEAD~1
 
-# 取消最近的 2次commit，并保留修改
+# 取消最近的2次commit，并保留修改
 git reset --soft HEAD~2
 
 # 取消最近一次commit，所有的修改都会被取消（硬盘数据不保留）
