@@ -1,2 +1,4 @@
 .vs-code
 .DS_Store
+
+examples/*

@@ -2,6 +2,7 @@
 
   * `git` 相关
     - [配置](git-config.md)
+    - [黑白名单](git-gitignore.md)
     - [分支](git-branch.md)
     - [历史纪录](git-history.md)
   * Github 相关
