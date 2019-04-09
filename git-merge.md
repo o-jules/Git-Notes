@@ -5,10 +5,12 @@
 ## 使用示例
 
 ```bash
-## 假设当前在 master 分出，需要合并 dev 分支上的内容
+# 假设当前在 master 分出，需要合并 dev 分支上的内容
 # $BRANCH_NAME = dev
-
 git merge $BRANCH_NAME
+
+# 假设当前需要合并多个分支
+git merge dev fixes
 ```
 
 ## 参数
@@ -28,3 +30,5 @@ git merge $BRANCH_NAME
   - `--no-edit`
 
     在 commit 的时候使用自动生成的 commit 信息。
+
+## 合并 tag
