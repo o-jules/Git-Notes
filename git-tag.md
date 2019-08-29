@@ -51,3 +51,15 @@ git push origin $tag_name
 # push all tags that are not in remote repository
 git push origin --tags
 ```
+
+## 查看 tag 列表
+
+```bash
+git tag --list
+```
+
+## 查看 annotated tag 的 hash
+
+```bash
+git show-ref --tags
+```
