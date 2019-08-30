@@ -92,9 +92,15 @@ function blobFile(content: byte[]): byte[] {
 }
 ```
 
-### tree object
+## 命令行中查看 git object 原始格式（解压后）
 
-### commit object
+```bash
+# gzip tricks
+printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - .git/objects/$hash | gzip -dc | xxd
 
-### tag object
+# pigz; installation requird
+cat .git/objects/8a/44ce04ea77c7eccf9d6987eb8bfbe7b360209f | unpigz -c | xxd
 
+## openssl; no built-in zlib for openssl in macOS
+cat .git/objects/8a/44ce04ea77c7eccf9d6987eb8bfbe7b360209f | openssl zlib -d | xxd
+```
