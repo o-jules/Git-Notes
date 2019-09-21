@@ -7,7 +7,7 @@ Usages samples:
 - git diff [<options>] [--] [<path...>]
 
   diff relative to index(staging area for the next commit)
-  
+
   ```bash
   git diff
   ```
@@ -21,7 +21,7 @@ For more information, see `git help diff`.
 ## Options
 
 - `--name-only`: show file names only
-- `--name-status`: show file names and status(A/added, M/modified, D/deleted etc) only 
+- `--name-status`: show file names and status(A/added, M/modified, D/deleted etc) only
 - `--numstat`: show number of lines added and deleted
 - `--summary`: show the summary of changes
 - `--diff-algorithm={patience|minimal|histogram|myers}`: default myers
@@ -31,11 +31,17 @@ For more information, see `git help diff`.
 - `git diff-tree`
 - `git diff-index`
 
-## Examples 
+## Examples
 
 ```bash
 ## diff current working tree to latest commit
 git diff
+
+## diff between master and dev
+git diff master..dev
+
+## diff between two commits
+git diff <commit-hash>..<commit-hash>
 
 git diff-tree <commit-hash>
 ```
