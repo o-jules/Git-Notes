@@ -18,29 +18,71 @@ machine github.com
     password [password]
 ```
 
-## Git credential storage
+## Git crendentials
+
+Show all credential helpers:
+
+```bash
+git help -a | grep credential-
+
+# show the manual
+git help <helper-name>
+```
+
+### Git credential store
 
 Helper to store credentials on disk.
-Using this helper will store your passwords unencrypted on disk, protected only by filesystem permissions.
 
-- Enable in Git repository:
+*Attention*: Using this helper will store your passwords unencrypted on disk, protected only by filesystem permissions.
+
+- Store the credential in a Git repository:
 
   ```bash
   git config credential.helper store
+
+  git push
+  # input user name and password; the your credentials are used automatically.
   ```
 
-- Enable globally:
+- Store the credential globally:
 
   ```bash
   git config --global credential.helper store
   ```
 
-- Edit `.git-credentials` file (plaintext)
+- Set up custom file path:
 
-  Each credential is stored on its own line as a URL like:
+  ```bash
+  git config credential.helper 'store --file=<path>'
+  ```
+
+The default path is `~/.git-credentials` and `$XDG_CONFIG_HOME/git/credentials`.
+
+- `.git/config`
+
+  Setting up the store helper, the `.git/config` file would have the content:
+
+  ```ini
+  [credential]
+      helper = store
+  ```
+
+  If you want to setup the user name only, edit `.git/config`:
+
+  ```ini
+  [credential "https://<remote-repository>"]
+      username = <your-name>
+  ```
+
+- `~/.git-credentials` file (plaintext), the default file for storing credentials.
+
+  Each credential is stored on its own line as a *URL* like:
   ```
   https://user:pass@example.com
   ```
+
+  *Attention*: if your password contains special charaters like WHITE SPACE, `!` etc.
+  they will be encoded into escape sequences.
 
 ## Git credential cache
 
